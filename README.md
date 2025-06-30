@@ -2,7 +2,7 @@
 
 Welcome to the **YouTube Downloader** — a beautiful and fully responsive web app that lets you download **YouTube videos or audio files** in various formats and qualities with ease.
 
-![screenshot](screenshots/preview.png) <!-- Optional: Add a real screenshot here -->
+![screenshot](screenshots/Preview.png) <!-- Optional: Add a real screenshot here -->
 
 ---
 
