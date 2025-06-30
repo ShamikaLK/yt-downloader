@@ -1,4 +1,4 @@
-# <div align = "center">🎥 YouTube Video & Audio Downloader </div>
+# <div align = "center">🎥 YouTube Video & Audio Downloader 📥 </div>
 
 Welcome to the **YouTube Downloader** — a beautiful and fully responsive web app that lets you download **YouTube videos or audio files** in various formats and qualities with ease.
 
@@ -47,13 +47,12 @@ Welcome to the **YouTube Downloader** — a beautiful and fully responsive web a
 - **HTML5**
 - **CSS3**
 - **Vanilla JavaScript**
-- ✅ [Wizard API](https://wizard-api-xi.vercel.app/) (for YouTube downloads)
 
 ---
 
 ## 📁 Folder Structure
 
-📁 your-project/ <br>
+📁 yt-downloader/ <br>
 ├── index.html <br>
 ├── style.css <br>
 ├── script.js <br>
