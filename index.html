@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Download</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>YouTube Download</h1>
+            <p>Video & Audio all quality download</p>
+        </div>
+
+        <div class="card">
+            <div class="input-group">
+                <input type="text" class="url-input" placeholder="Enter YouTube URL..." id="youtubeUrl">
+                <button class="btn" id="searchBtn">SEARCH</button>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Fetching video info...</p>
+            </div>
+
+            <div class="result-container" id="resultContainer">
+                <div class="video-info">
+                    <h2 class="video-title" id="videoTitle"></h2>
+                    <img class="video-thumbnail" id="videoThumbnail" src="" alt="Video Thumbnail">
+                    <p class="video-description" id="videoDescription"></p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-clock"></i><span id="videoTimestamp"></span></span>
+                        <span><i class="fas fa-calendar-alt"></i><span id="videoAgo"></span></span>
+                    </div>
+                </div>
+
+                <div class="download-options">
+                    <div class="select-group">
+                        <select id="downloadType">
+                            <option value="mp4">MP4 (Video)</option>
+                            <option value="mp3">MP3 (Audio)</option>
+                        </select>
+                        <select id="downloadQuality"></select>
+                    </div>
+                    <button class="btn" id="downloadBtn">DOWNLOAD</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 YouTube Downloader | Made with ❤️ MR.Shamika</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
