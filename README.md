@@ -1,4 +1,4 @@
-# 🎥 YouTube Video & Audio Downloader
+# <div align = "center">🎥 YouTube Video & Audio Downloader </div>
 
 Welcome to the **YouTube Downloader** — a beautiful and fully responsive web app that lets you download **YouTube videos or audio files** in various formats and qualities with ease.
 
