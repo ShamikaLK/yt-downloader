@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 qualitySelect.innerHTML = "";
                 
                 const options = format === "mp4"
-                    ? [144, 360, 480, 720, 1080]
-                    : [92, 128, 256, 320];
+                    ? [144, 360, 480, 720, 1080, 1440]
+                    : [128, 256, 320];
 
                 for (const q of options) {
                     const opt = document.createElement("option");
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             function displayVideoInfo(data) {
-                const metadata = data.result.metadata;
+                const metadata = data.result.data;
                 
                 videoTitle.textContent = metadata.title;
                 videoThumbnail.src = metadata.image || metadata.thumbnail;
