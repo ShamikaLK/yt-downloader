@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     : `https://shamika-api.vercel.app/download/ytmp3?url=${encodeURIComponent(url)}&quality=${quality}`;
 
                 loading.style.display = 'block';
-                downloadBtn.disabled = true;
+                downloadBtn.disabled = false;
                 
                 fetch(api)
                     .then(res => res.json())
