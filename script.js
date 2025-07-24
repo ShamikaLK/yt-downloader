@@ -12,10 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const downloadQuality = document.getElementById('downloadQuality');
     const downloadBtn = document.getElementById('downloadBtn');
 
-    // Current video data
     let currentVideoData = null;
 
-    // Update quality options based on selected type
     downloadType.addEventListener('change', function() {
         populateQualityOptions();
     });
@@ -37,17 +35,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Initialize quality options
     populateQualityOptions();
 
-    // Search button click handler
     searchBtn.addEventListener('click', function() {
         const url = youtubeUrlInput.value.trim();
         
         if (!url) {
             alert('Please enter a YouTube URL');
             return;
-        }
+        } //special note:- This needs to be updated.
         
         if (!isValidYouTubeUrl(url)) {
             alert('Please enter a valid YouTube URL');
@@ -57,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchVideoInfo(url);
     });
 
-    // Download button click handler
     downloadBtn.addEventListener('click', function() {
         if (!currentVideoData) return;
         
