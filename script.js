@@ -81,20 +81,16 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (!data.status) throw new Error("Failed to fetch download link");
                 
-                // Create a temporary link and trigger download
-                const a = document.createElement('a');
-                a.href = data.result.download.url;
-                a.download = data.result.download.filename || 
-                    (format === "mp4" ? `video_${quality}p.mp4` : `audio_${quality}kbps.mp3`);
-                a.target = '_blank';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
+                // Create a hidden iframe for downloading
+                const iframe = document.createElement('iframe');
+                iframe.src = data.result.download.url;
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
                 
-                // For some browsers, we need to revoke the object URL
+                // Remove the iframe after some time
                 setTimeout(() => {
-                    window.URL.revokeObjectURL(a.href);
-                }, 100);
+                    document.body.removeChild(iframe);
+                }, 5000);
             })
             .catch(err => {
                 console.error('Error:', err);
