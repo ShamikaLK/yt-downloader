@@ -12,8 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const downloadQuality = document.getElementById('downloadQuality');
     const downloadBtn = document.getElementById('downloadBtn');
 
+    // Current video data
     let currentVideoData = null;
 
+    // Update quality options based on selected type
     downloadType.addEventListener('change', function() {
         populateQualityOptions();
     });
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         qualitySelect.innerHTML = "";
         
         const options = format === "mp4"
-            ? [144, 360, 480, 720, 1080, 1440]
+            ? [144, 360, 480, 720, 1080]
             : [128, 256, 320];
 
         for (const q of options) {
@@ -35,15 +37,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Initialize quality options
     populateQualityOptions();
 
+    // Search button click handler
     searchBtn.addEventListener('click', function() {
         const url = youtubeUrlInput.value.trim();
         
         if (!url) {
             alert('Please enter a YouTube URL');
             return;
-        } //special note:- This needs to be updated.
+        }
         
         if (!isValidYouTubeUrl(url)) {
             alert('Please enter a valid YouTube URL');
@@ -53,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchVideoInfo(url);
     });
 
+    // Download button click handler
     downloadBtn.addEventListener('click', function() {
         if (!currentVideoData) return;
         
@@ -76,16 +81,20 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (!data.status) throw new Error("Failed to fetch download link");
                 
-                // Create a hidden iframe for downloading
-                const iframe = document.createElement('iframe');
-                iframe.src = data.result.download.url;
-                iframe.style.display = 'none';
-                document.body.appendChild(iframe);
+                // Create a temporary link and trigger download
+                const a = document.createElement('a');
+                a.href = data.result.download.url;
+                a.download = data.result.download.filename || 
+                    (format === "mp4" ? `video_${quality}p.mp4` : `audio_${quality}kbps.mp3`);
+                a.target = '_blank';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
                 
-                // Remove the iframe after some time
+                // For some browsers, we need to revoke the object URL
                 setTimeout(() => {
-                    document.body.removeChild(iframe);
-                }, 5000);
+                    window.URL.revokeObjectURL(a.href);
+                }, 100);
             })
             .catch(err => {
                 console.error('Error:', err);
