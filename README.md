@@ -64,5 +64,5 @@ Welcome to the **YouTube Downloader** — a beautiful and fully responsive web a
 ---
 
 - Released :- 30/06/2025
-- Last Update :- 24/07/2025
-- Update Time :- 13:52pm
+- Last Update :- 04/01/2026
+- Update Time :- 11:41am
